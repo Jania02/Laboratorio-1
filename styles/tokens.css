@@ -1,0 +1,235 @@
+/* ==========================================================================
+   SUBLIMOMENTOS V&M — Tokens de diseño
+   Archivo: styles/tokens.css
+   Descripción: Variables globales de color, tipografía, espaciado y layout.
+   ========================================================================== */
+
+/* --- 01. Importación de tipografías --- */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap");
+
+/* --- 02. Variables globales (:root) --- */
+:root {
+
+  /* ----------------------------------------------------------
+     PRIMITIVOS DE COLOR
+  */
+
+  /* Rosa — color principal del negocio */
+  --color-rosa-50:  #fff0f5;
+  --color-rosa-100: #fce4ec;
+  --color-rosa-200: #f8c8d4;
+  --color-rosa-pastel: #fbd5e0;   /* Botón agregar suave */
+  --color-rosa-300: #f48fb1;
+  --color-rosa-500: #e91e8c;   /* Principal */
+  --color-rosa-600: #d4177a;
+  --color-rosa-700: #b5145f;
+
+  /* Coral — secundario */
+  --color-coral-400: #ff8fab;
+  --color-coral-500: #ff6b9d;
+
+  /* Neutros cálidos */
+  --color-neutro-50:  #fff8f4;   /* Fondo de página */
+  --color-neutro-100: #f5efe9;
+  --color-neutro-200: #e8ddd5;
+  --color-neutro-400: #b0998a;
+  --color-neutro-600: #6b5a4e;
+  --color-neutro-800: #333333;   /* Texto principal */
+  --color-neutro-900: #1a1a1a;   /* Footer oscuro  */
+
+  /* Absolutos */
+  --color-blanco: #ffffff;
+  --color-negro:  #000000;
+
+  /* Acentos del logo */
+  --color-verde: #8dc63f;
+  --color-azul:  #00aeef;
+
+  /* ----------------------------------------------------------
+     TOKENS SEMÁNTICOS — Los que se usan en main.css
+  */
+
+  /* Fondos */
+  --fondo-pagina:    var(--color-neutro-50);
+  --fondo-alternado: var(--color-rosa-100);
+  --fondo-tarjeta:   var(--color-blanco);
+  --fondo-oscuro:    var(--color-neutro-900);
+  --fondo-nav:       var(--color-neutro-50);
+
+  /* Bordes */
+  --borde-suave:   #f0ddd6;
+  --borde-tarjeta: #f0ddd6;
+  --borde-fuerte:  var(--color-rosa-200);
+
+  /* Textos */
+  --texto-principal:    var(--color-neutro-800);
+  --texto-headings:     var(--color-neutro-800);
+  --texto-secundario:   #999999;
+  --texto-muted:        #bbbbbb;
+  --texto-sobre-oscuro: var(--color-blanco);
+  --texto-acento:       var(--color-rosa-500);
+
+  /* CTA — Botón principal */
+  --cta-fondo:       var(--color-rosa-500);
+  --cta-fondo-hover: var(--color-rosa-600);
+  --cta-texto:       var(--color-blanco);
+
+  /* Botón secundario */
+  --btn-sec-borde: var(--color-rosa-500);
+  --btn-sec-texto: var(--color-rosa-500);
+
+  /* Foco */
+  --color-foco: var(--color-rosa-500);
+
+  /* Línea degradada del logo */
+  --linea-logo: linear-gradient(90deg, var(--color-verde), var(--color-azul));
+
+  /* ----------------------------------------------------------
+     TIPOGRAFÍA
+  */
+
+  --fuente-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --fuente-cuerpo:  "DM Sans", "Segoe UI", Helvetica, sans-serif;
+
+  /* Escala tipográfica — Tercera Mayor (1.25) */
+  --texto-xs:   0.64rem;   /*  ~10px */
+  --texto-sm:   0.8rem;    /*  ~13px */
+  --texto-base: 1rem;      /*   16px */
+  --texto-md:   1.25rem;   /*   20px */
+  --texto-lg:   1.563rem;  /*   25px */
+  --texto-xl:   1.953rem;  /*   31px */
+  --texto-2xl:  2.441rem;  /*   39px */
+  --texto-3xl:  3.052rem;  /*   49px */
+
+  /* Texto fluido */
+  --texto-hero:    clamp(1.8rem, 4vw + 1rem, 3.5rem);
+  --texto-seccion: clamp(1.3rem, 2.5vw + 0.5rem, 2rem);
+
+  /* Pesos */
+  --peso-ligero:  300;
+  --peso-normal:  400;
+  --peso-medio:   500;
+  --peso-semi:    600;
+  --peso-negrita: 700;
+  --peso-black:   900;
+
+  /* Alturas de línea */
+  --linea-apretada: 1.15;
+  --linea-normal:   1.5;
+  --linea-holgada:  1.7;
+
+  /* Interletraje */
+  --tracking-apretado: -0.02em;
+  --tracking-normal:    0em;
+  --tracking-amplio:    0.08em;
+
+  /* ----------------------------------------------------------
+     ESPACIADO — Escala de 8pt
+  */
+
+  --space-1:  0.25rem;   /*  4px */
+  --space-2:  0.5rem;    /*  8px */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1rem;      /* 16px */
+  --space-5:  1.25rem;   /* 20px */
+  --space-6:  1.5rem;    /* 24px */
+  --space-8:  2rem;      /* 32px */
+  --space-10: 2.5rem;    /* 40px */
+  --space-12: 3rem;      /* 48px */
+  --space-16: 4rem;      /* 64px */
+  --space-20: 5rem;      /* 80px */
+  --space-24: 6rem;      /* 96px */
+
+  /* ----------------------------------------------------------
+     BORDES Y RADIO
+  */
+
+  --radio-sm:   4px;
+  --radio-md:   8px;
+  --radio-lg:   16px;
+  --radio-xl:   24px;
+  --radio-full: 9999px;
+  --grosor-borde: 1px;
+
+  /* ----------------------------------------------------------
+     SOMBRAS
+  */
+
+  --sombra-xs: 0 1px 2px rgba(233, 30, 140, 0.05);
+  --sombra-sm: 0 1px 3px rgba(233, 30, 140, 0.08), 0 1px 2px rgba(233, 30, 140, 0.04);
+  --sombra-md: 0 4px 6px rgba(233, 30, 140, 0.07), 0 2px 4px rgba(233, 30, 140, 0.04);
+  --sombra-lg: 0 10px 15px rgba(233, 30, 140, 0.08), 0 4px 6px rgba(233, 30, 140, 0.05);
+  --sombra-card-hover: 0 12px 24px rgba(233, 30, 140, 0.12), 0 4px 8px rgba(233, 30, 140, 0.08);
+
+  /* ----------------------------------------------------------
+     TRANSICIONES Y ANIMACIONES
+  */
+
+  --duracion-rapida:  150ms;
+  --duracion-normal:  250ms;
+  --duracion-lenta:   400ms;
+  --duracion-muy-lenta: 600ms;
+
+  --ease-out:    cubic-bezier(0, 0, 0.2, 1);
+  --ease-in:     cubic-bezier(0.4, 0, 1, 1);
+  --ease-inout:  cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-rebote: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --transicion-rapida: var(--duracion-rapida) var(--ease-out);
+  --transicion-normal: var(--duracion-normal) var(--ease-out);
+  --transicion-lenta:  var(--duracion-lenta) var(--ease-inout);
+
+  /* ----------------------------------------------------------
+     LAYOUT Y CONTENEDORES
+  */
+
+  --ancho-maximo:         1200px;
+  --ancho-maximo-angosto: 760px;
+
+  --padding-contenedor-movil:   var(--space-4);
+  --padding-contenedor-tablet:  var(--space-8);
+  --padding-contenedor-desktop: var(--space-10);
+
+  --gap-grid-sm: var(--space-4);
+  --gap-grid-md: var(--space-6);
+  --gap-grid-lg: var(--space-8);
+
+  --alto-header: 76px;
+
+  /* ----------------------------------------------------------
+     Z-INDEX — Capas de apilamiento
+  */
+
+  --z-base:     0;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+}
+
+/* --- 03. Modo oscuro --- */
+body.modo-oscuro {
+  --fondo-pagina:    #1a0d12;
+  --fondo-alternado: #2a1520;
+  --fondo-tarjeta:   #251118;
+  --fondo-nav:       #1a0d12;
+  --texto-principal:  #f0dde6;
+  --texto-headings:   #f8c8d4;
+  --texto-secundario: #c49aad;
+  --texto-muted:      #8a5e6d;
+  --borde-suave:   #3d1f2d;
+  --borde-tarjeta: #3d1f2d;
+  --borde-fuerte:  #4d2535;
+  --sombra-card-hover: 0 12px 24px rgba(0,0,0,0.5);
+}
+
+/* --- 04. Reducir movimiento --- */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duracion-rapida:   0ms;
+    --duracion-normal:   0ms;
+    --duracion-lenta:    0ms;
+    --duracion-muy-lenta: 0ms;
+  }
+}

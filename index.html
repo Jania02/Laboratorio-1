@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="es-CR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="SubliMomentos V&M — De todo en artículos personalizados en Costa Rica." />
+    <meta name="author" content="SubliMomentos V&M" />
+    <meta property="og:title" content="SubliMomentos V&M — ¡Sublima tus momentos!" />
+    <meta property="og:type"  content="website" />
+    <title>SubliMomentos V&M — ¡Sublima tus momentos!</title>
+    <link rel="stylesheet" href="styles/tokens.css" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="stylesheet" href="styles/animations.css" />
+    <link rel="preload" as="image" href="assets/icons/logo.png" />
+    <!-- Three.js + loaders -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  </head>
+  <body>
+
+    <div id="header-placeholder"></div>
+    <a href="#contenido-principal" class="sr-only">Saltar al contenido principal</a>
+
+    <main id="contenido-principal" tabindex="-1">
+
+      <!-- ================================================================
+           HERO
+           ================================================================ -->
+      <section id="inicio" class="hero" aria-labelledby="hero-titulo">
+
+        <video class="hero__video-bg" src="assets/videos/video-sublimacion.mp4"
+          autoplay muted loop playsinline preload="auto"
+          aria-label="Video del proceso de sublimación"></video>
+
+        <div class="hero__overlay" aria-hidden="true"></div>
+
+        <!-- TEXTO — arriba izquierda -->
+        <div class="hero__inner">
+          <div class="hero__contenido">
+            <p class="hero__eyebrow" aria-hidden="true">✨ ¡Sublima tus momentos!</p>
+            <div class="hero__titulo">
+              <h1 id="hero-titulo" class="hero__nombre-marca marca__nombre">
+                <span class="marca__subli">Subli</span><span class="marca__M">M</span><span class="marca__omentos">omentos</span>
+              </h1>
+              <span class="hero__vm">— V &amp; M —</span>
+              <span class="hero__tagline">De todo en artículos personalizados</span>
+              <div class="hero__linea-logo" aria-hidden="true"></div>
+            </div>
+            <p class="hero__descripcion">
+              Tazas, botellas, gorras, camisetas y más — todo personalizado con
+              sublimación, grabado láser y estampado DTF.
+            </p>
+            <div class="hero__acciones">
+              <a href="#catalogo" class="btn btn--primario">Ver catálogo →</a>
+              <a href="#proceso"  class="btn btn--secundario">¿Cómo funciona?</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAZA 3D — derecha, centrada verticalmente -->
+        <div class="hero__taza-3d" aria-hidden="true">
+          <canvas id="taza-canvas" class="hero__taza-canvas"></canvas>
+        </div>
+
+      </section>
+
+      <!-- Separador -->
+      <div class="separador contenedor" aria-hidden="true">
+        <div class="separador__linea"></div><div class="separador__rombo"></div>
+        <span class="separador__texto">¡Sublima tus momentos!</span>
+        <div class="separador__rombo"></div><div class="separador__linea separador__linea--derecha"></div>
+      </div>
+      <div class="linea-logo" aria-hidden="true"></div>
+      <div class="ola ola--hacia-rosa" aria-hidden="true"></div>
+
+      <!-- ================================================================
+           SERVICIOS
+           ================================================================ -->
+      <section id="servicios" class="servicios" aria-labelledby="servicios-titulo">
+        <div class="contenedor">
+          <header class="seccion-header reveal-hidden">
+            <p class="seccion-header__eyebrow">— Lo que hacemos —</p>
+            <h2 id="servicios-titulo" class="seccion-header__titulo">Nuestros Servicios</h2>
+          </header>
+        </div>
+        <div class="servicios-cinta" aria-label="Galería de servicios">
+          <div class="servicios-cinta__pista">
+            <div class="slide-servicio"><img src="assets/images/taza-navidad-1.png" alt="Taza navideña" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Sublimación</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Tazas Navideñas</p><p class="slide-servicio__desc">Diseños personalizados</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/taza-marmoleada-todas.jpeg" alt="Tazas marmoleadas" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Sublimación</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Tazas Marmoleadas</p><p class="slide-servicio__desc">Múltiples colores</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/gorra-plana.jpeg" alt="Gorra" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Sublimación</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Gorras</p><p class="slide-servicio__desc">Algodón y mallita</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/almohadones-lentejuelas-mama-1.jpeg" alt="Almohadón" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Sublimación</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Almohadones</p><p class="slide-servicio__desc">Con lentejuelas</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/camisas-estudiantiles.jpeg" alt="Camisas" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Estampado DTF</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Camisas Estudiantiles</p><p class="slide-servicio__desc">Logo de tu escuela</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/jarra-termica-1.jpeg" alt="Jarra" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Grabado Láser</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Jarras Térmicas</p><p class="slide-servicio__desc">Diseño permanente</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/vasos-plasticos-pajilla-1.jpeg" alt="Vasos" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Sublimación</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Vasos con Pajilla</p><p class="slide-servicio__desc">Personalizados</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/taza-escarchada-roja.jpeg" alt="Taza mágica" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Sublimación</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Tazas Mágicas</p><p class="slide-servicio__desc">Cambian de color</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/almohadon-datos-1.jpeg" alt="Almohadón datos" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Sublimación</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Almohadón con Datos</p><p class="slide-servicio__desc">Nombre y fecha</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/jarra-cervecera-1.jpeg" alt="Jarra cervecera" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Sublimación</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Jarras Cerveceras</p><p class="slide-servicio__desc">Ediciones especiales</p></div></div>
+            <!-- SET 2 -->
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/taza-navidad-1.png" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Sublimación</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Tazas Navideñas</p><p class="slide-servicio__desc">Diseños personalizados</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/taza-marmoleada-todas.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Sublimación</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Tazas Marmoleadas</p><p class="slide-servicio__desc">Múltiples colores</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/gorra-plana.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Sublimación</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Gorras</p><p class="slide-servicio__desc">Algodón y mallita</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/almohadones-lentejuelas-mama-1.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Sublimación</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Almohadones</p><p class="slide-servicio__desc">Con lentejuelas</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/camisas-estudiantiles.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Estampado DTF</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Camisas Estudiantiles</p><p class="slide-servicio__desc">Logo de tu escuela</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/jarra-termica-1.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Grabado Láser</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Jarras Térmicas</p><p class="slide-servicio__desc">Diseño permanente</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/vasos-plasticos-pajilla-1.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Sublimación</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Vasos con Pajilla</p><p class="slide-servicio__desc">Personalizados</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/taza-escarchada-roja.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Sublimación</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Tazas Mágicas</p><p class="slide-servicio__desc">Cambian de color</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/almohadon-datos-1.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Sublimación</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Almohadón con Datos</p><p class="slide-servicio__desc">Nombre y fecha</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/jarra-cervecera-1.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Sublimación</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Jarras Cerveceras</p><p class="slide-servicio__desc">Ediciones especiales</p></div></div>
+          </div>
+        </div>
+
+      <!-- ================================================================
+           SEGUNDO CARRUSEL — Nuevos productos (dirección opuesta)
+           ================================================================ -->
+      <div class="servicios-cinta" aria-label="Galería de nuevos productos">
+        <div class="servicios-cinta__pista servicios-cinta__pista--inversa">
+            <div class="slide-servicio"><img src="assets/images/camiseta-yamaha-honda-tela-algodon-o-deportiva-1.jpeg" alt="Camiseta Yamaha/Honda" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Estampado DTF</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Camiseta Yamaha/Honda</p><p class="slide-servicio__desc">₡13.000</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/camiseta-algodon-jaspeado-1.jpeg" alt="Camiseta algodon jaspeado" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Estampado DTF</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Camiseta algodon jaspeado</p><p class="slide-servicio__desc">₡9.000</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/camiseta-cuello-v-color-negra-detalles-flores-1.jpeg" alt="Camiseta cuello V flores" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Estampado DTF</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Camiseta cuello V flores</p><p class="slide-servicio__desc">₡9.000</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/camiseta-de-algodon-coleccion-fox-personalizadas-con-dtf-1.jpeg" alt="Camiseta Fox DTF algodón" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Estampado DTF</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Camiseta Fox DTF algodón</p><p class="slide-servicio__desc">₡11.000</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/camiseta-negra-algodon-personalizada-con-dtf-1.jpeg" alt="Camiseta negra DTF" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Estampado DTF</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Camiseta negra DTF</p><p class="slide-servicio__desc">₡10.000</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/grabado-laser-1.jpeg" alt="Grabado Laser" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Grabado Láser</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Grabado Laser</p><p class="slide-servicio__desc">₡13.000</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/onz-tumbler-1.png" alt="Tumbler 20 oz" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Grabado Láser</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Tumbler 20 oz</p><p class="slide-servicio__desc">₡12.000</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/tumbler-1.jpeg" alt="Tumbler" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Grabado Láser</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Tumbler</p><p class="slide-servicio__desc">₡12.000</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/tumbler-degradado-1.jpeg" alt="Tumbler Degradado" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Grabado Láser</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Tumbler Degradado</p><p class="slide-servicio__desc">₡13.000</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/botella-bambu-1.png" alt="Botella bambu" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Personalizada</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Botella bambu</p><p class="slide-servicio__desc">₡15.000</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/botella-degradado-doble-acero-dise-u00f1os-en-grabado-laser-1.jpeg" alt="Botella degradado grabado láser" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Personalizada</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Botella degradado grabado láser</p><p class="slide-servicio__desc">₡16.000</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/botella-grabado-lazer-personalizada-1.jpeg" alt="Botella grabado lazer personalizada" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Personalizada</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Botella grabado lazer personalizada</p><p class="slide-servicio__desc">₡16.000</p></div></div>
+            <div class="slide-servicio"><img src="assets/images/botella-tapa-rosca-con-pajilla-500-ml-1.jpeg" alt="Botella tapa rosca pajilla 500 ml" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Personalizada</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Botella tapa rosca pajilla 500 ml</p><p class="slide-servicio__desc">₡7.000</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/camiseta-yamaha-honda-tela-algodon-o-deportiva-1.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Estampado DTF</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Camiseta Yamaha/Honda</p><p class="slide-servicio__desc">₡13.000</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/camiseta-algodon-jaspeado-1.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Estampado DTF</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Camiseta algodon jaspeado</p><p class="slide-servicio__desc">₡9.000</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/camiseta-cuello-v-color-negra-detalles-flores-1.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Estampado DTF</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Camiseta cuello V flores</p><p class="slide-servicio__desc">₡9.000</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/camiseta-de-algodon-coleccion-fox-personalizadas-con-dtf-1.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Estampado DTF</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Camiseta Fox DTF algodón</p><p class="slide-servicio__desc">₡11.000</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/camiseta-negra-algodon-personalizada-con-dtf-1.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Estampado DTF</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Camiseta negra DTF</p><p class="slide-servicio__desc">₡10.000</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/grabado-laser-1.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Grabado Láser</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Grabado Laser</p><p class="slide-servicio__desc">₡13.000</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/onz-tumbler-1.png" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Grabado Láser</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Tumbler 20 oz</p><p class="slide-servicio__desc">₡12.000</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/tumbler-1.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Grabado Láser</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Tumbler</p><p class="slide-servicio__desc">₡12.000</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/tumbler-degradado-1.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Grabado Láser</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Tumbler Degradado</p><p class="slide-servicio__desc">₡13.000</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/botella-bambu-1.png" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Personalizada</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Botella bambu</p><p class="slide-servicio__desc">₡15.000</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/botella-degradado-doble-acero-dise-u00f1os-en-grabado-laser-1.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Personalizada</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Botella degradado grabado láser</p><p class="slide-servicio__desc">₡16.000</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/botella-grabado-lazer-personalizada-1.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Personalizada</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Botella grabado lazer personalizada</p><p class="slide-servicio__desc">₡16.000</p></div></div>
+            <div class="slide-servicio" aria-hidden="true"><img src="assets/images/botella-tapa-rosca-con-pajilla-500-ml-1.jpeg" alt="" class="slide-servicio__imagen" loading="lazy" /><div class="slide-servicio__badge">Personalizada</div><div class="slide-servicio__overlay"><p class="slide-servicio__titulo">Botella tapa rosca pajilla 500 ml</p><p class="slide-servicio__desc">₡7.000</p></div></div>
+        </div>
+      </div>
+      </section>
+
+      <div class="separador contenedor" aria-hidden="true">
+        <div class="separador__linea"></div><div class="separador__rombo"></div>
+        <span class="separador__texto">De todo en artículos personalizados</span>
+        <div class="separador__rombo"></div><div class="separador__linea separador__linea--derecha"></div>
+      </div>
+      <div class="linea-logo" style="margin-inline:2rem" aria-hidden="true"></div>
+      <div class="ola ola--hacia-blanco" aria-hidden="true"></div>
+
+      <!-- ================================================================
+           CATÁLOGO
+           ================================================================ -->
+      <section id="catalogo" class="catalogo" aria-labelledby="catalogo-titulo">
+        <div class="contenedor">
+          <header class="seccion-header reveal-hidden">
+            <p class="seccion-header__eyebrow">— Nuestros productos —</p>
+            <h2 id="catalogo-titulo" class="seccion-header__titulo">Catálogo Completo</h2>
+            <p style="font-size:var(--texto-sm);color:var(--texto-secundario);margin-top:0.5rem;font-style:italic">
+              Tocá la imagen de cualquier producto para verla en grande
+            </p>
+          </header>
+          <div class="catalogo__tabs" role="tablist" aria-label="Filtrar por categoría">
+            <button class="catalogo__tab catalogo__tab--activo" role="tab" aria-selected="true"  tabindex="0"  data-categoria="tazas">☕ Tazas</button>
+            <button class="catalogo__tab" role="tab" aria-selected="false" tabindex="-1" data-categoria="botellas">🫙 Botellas</button>
+            <button class="catalogo__tab" role="tab" aria-selected="false" tabindex="-1" data-categoria="tumblers">🥤 Tumblers</button>
+            <button class="catalogo__tab" role="tab" aria-selected="false" tabindex="-1" data-categoria="vasos">🧃 Vasos</button>
+            <button class="catalogo__tab" role="tab" aria-selected="false" tabindex="-1" data-categoria="vasos_cafe">☕ Vasos Café</button>
+            <button class="catalogo__tab" role="tab" aria-selected="false" tabindex="-1" data-categoria="jarras">🍺 Jarras</button>
+            <button class="catalogo__tab" role="tab" aria-selected="false" tabindex="-1" data-categoria="gorras">🧢 Gorras</button>
+            <button class="catalogo__tab" role="tab" aria-selected="false" tabindex="-1" data-categoria="camisetas">👕 Camisetas</button>
+            <button class="catalogo__tab" role="tab" aria-selected="false" tabindex="-1" data-categoria="abrigos">🧥 Abrigos</button>
+            <button class="catalogo__tab" role="tab" aria-selected="false" tabindex="-1" data-categoria="almohadones">🛏️ Almohadones</button>
+            <button class="catalogo__tab" role="tab" aria-selected="false" tabindex="-1" data-categoria="llaveros">🔑 Llaveros</button>
+          </div>
+          <div id="productos-contenedor" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           PROCESO
+           ================================================================ -->
+      <section id="proceso" class="proceso" aria-labelledby="proceso-titulo">
+        <div class="contenedor">
+          <header class="seccion-header reveal-hidden">
+            <p class="seccion-header__eyebrow">— Simple y rápido —</p>
+            <h2 id="proceso-titulo" class="seccion-header__titulo">¿Cómo Funciona?</h2>
+          </header>
+          <ol class="proceso__pasos" role="list">
+            <li class="proceso__paso reveal-hidden reveal-delay-1"><div class="proceso__numero" aria-hidden="true">1</div><p class="proceso__descripcion">Elegís el producto y el estilo que más te guste del catálogo</p></li>
+            <li class="proceso__paso reveal-hidden reveal-delay-2"><div class="proceso__numero" aria-hidden="true">2</div><p class="proceso__descripcion">Nos enviás tu diseño o lo creamos juntos por WhatsApp</p></li>
+            <li class="proceso__paso reveal-hidden reveal-delay-3"><div class="proceso__numero" aria-hidden="true">3</div><p class="proceso__descripcion">Confirmás el pedido y realizás el pago</p></li>
+            <li class="proceso__paso reveal-hidden reveal-delay-4"><div class="proceso__numero" aria-hidden="true">4</div><p class="proceso__descripcion">Recibís tu artículo personalizado listo 🌸</p></li>
+          </ol>
+        </div>
+      </section>
+
+
+      <!-- ================================================================
+           FAQ — Preguntas frecuentes
+           ================================================================ -->
+      <!-- ================================================================
+           FAQ — Preguntas frecuentes (cuadrícula 2 columnas)
+           ================================================================ -->
+      <section id="faq" class="faq" aria-labelledby="faq-titulo">
+        <div class="contenedor">
+          <header class="seccion-header reveal-hidden">
+            <p class="seccion-header__eyebrow">— Dudas comunes —</p>
+            <h2 id="faq-titulo" class="seccion-header__titulo">Preguntas Frecuentes</h2>
+          </header>
+          <div class="faq__grilla">
+
+            <details class="faq__card reveal-hidden reveal-delay-1">
+              <summary class="faq__card-q">
+                <span class="faq__card-icono" aria-hidden="true">⏱️</span>
+                <span>¿Cuánto tarda mi pedido?</span>
+                <span class="faq__card-chevron" aria-hidden="true">+</span>
+              </summary>
+              <p class="faq__card-a">Entre 2 y 5 días hábiles. Te confirmamos el tiempo exacto por WhatsApp al hacer tu pedido.</p>
+            </details>
+
+            <details class="faq__card reveal-hidden reveal-delay-2">
+              <summary class="faq__card-q">
+                <span class="faq__card-icono" aria-hidden="true">💳</span>
+                <span>¿Cómo realizo el pago?</span>
+                <span class="faq__card-chevron" aria-hidden="true">+</span>
+              </summary>
+              <p class="faq__card-a">Aceptamos SINPE Móvil y transferencia bancaria. Coordinamos los detalles por WhatsApp.</p>
+            </details>
+
+            <details class="faq__card reveal-hidden reveal-delay-3">
+              <summary class="faq__card-q">
+                <span class="faq__card-icono" aria-hidden="true">🚚</span>
+                <span>¿Hacen envíos a todo Costa Rica?</span>
+                <span class="faq__card-chevron" aria-hidden="true">+</span>
+              </summary>
+              <p class="faq__card-a">Sí, por Correos de Costa Rica a todo el país. También podés coordinar entrega personal según la zona.</p>
+            </details>
+
+            <details class="faq__card reveal-hidden reveal-delay-4">
+              <summary class="faq__card-q">
+                <span class="faq__card-icono" aria-hidden="true">🎨</span>
+                <span>¿Puedo enviar mi propio diseño?</span>
+                <span class="faq__card-chevron" aria-hidden="true">+</span>
+              </summary>
+              <p class="faq__card-a">¡Claro! Envianos tu diseño o idea por WhatsApp. Si no tenés diseño, lo creamos juntos sin costo adicional.</p>
+            </details>
+
+            <details class="faq__card reveal-hidden reveal-delay-1">
+              <summary class="faq__card-q">
+                <span class="faq__card-icono" aria-hidden="true">📦</span>
+                <span>¿Trabajan con mis productos?</span>
+                <span class="faq__card-chevron" aria-hidden="true">+</span>
+              </summary>
+              <p class="faq__card-a">No, solo trabajamos con nuestros productos del catálogo para garantizar la calidad del resultado final.</p>
+            </details>
+
+            <details class="faq__card reveal-hidden reveal-delay-2">
+              <summary class="faq__card-q">
+                <span class="faq__card-icono" aria-hidden="true">1️⃣</span>
+                <span>¿Cuál es el pedido mínimo?</span>
+                <span class="faq__card-chevron" aria-hidden="true">+</span>
+              </summary>
+              <p class="faq__card-a">No hay pedido mínimo. Podés pedir desde una unidad. Para pedidos grandes consultá precios especiales.</p>
+            </details>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ================================================================
+           UBICACIÓN — Dónde estamos
+           ================================================================ -->
+      <section id="ubicacion" class="ubicacion" aria-labelledby="ubicacion-titulo">
+        <div class="contenedor">
+          <header class="seccion-header reveal-hidden">
+            <p class="seccion-header__eyebrow">— Encontranos —</p>
+            <h2 id="ubicacion-titulo" class="seccion-header__titulo">Nuestra Ubicación</h2>
+            <p style="font-size:var(--texto-sm);color:var(--texto-secundario);margin-top:0.5rem;font-style:italic">
+              Entregas a domicilio y envíos a todo Costa Rica 🇨🇷
+            </p>
+          </header>
+          <div class="ubicacion__grilla">
+            <div class="ubicacion__mapa reveal-hidden">
+              <iframe
+                src="https://maps.google.com/maps?q=10.5248918,-84.2608738&z=16&hl=es&output=embed"
+                width="100%"
+                height="380"
+                style="border:0;border-radius:16px;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Mapa de ubicación de SubliMomentos V&M">
+              </iframe>
+            </div>
+            <aside class="ubicacion__info reveal-hidden reveal-delay-2">
+              <h3 class="ubicacion__info-titulo">Información de entrega</h3>
+              <div class="ubicacion__item">
+                <span class="ubicacion__item-emoji" aria-hidden="true">📍</span>
+                <div>
+                  <h4 class="ubicacion__item-titulo">Zona</h4>
+                  <p class="ubicacion__item-desc">San Carlos, Costa Rica</p>
+                </div>
+              </div>
+              <div class="ubicacion__item">
+                <span class="ubicacion__item-emoji" aria-hidden="true">🚚</span>
+                <div>
+                  <h4 class="ubicacion__item-titulo">Envíos</h4>
+                  <p class="ubicacion__item-desc">A todo el país por Correos de Costa Rica</p>
+                </div>
+              </div>
+              <div class="ubicacion__item">
+                <span class="ubicacion__item-emoji" aria-hidden="true">🤝</span>
+                <div>
+                  <h4 class="ubicacion__item-titulo">Entrega personal</h4>
+                  <p class="ubicacion__item-desc">Coordinable según la zona</p>
+                </div>
+              </div>
+              <div class="ubicacion__item">
+                <span class="ubicacion__item-emoji" aria-hidden="true">💬</span>
+                <div>
+                  <h4 class="ubicacion__item-titulo">WhatsApp 24/7</h4>
+                  <p class="ubicacion__item-desc">Respondemos todos los días</p>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-strip" aria-labelledby="cta-titulo">
+        <div class="cta-strip__inner">
+          <div>
+            <h2 id="cta-titulo" class="cta-strip__titulo">¿Listo para personalizar?</h2>
+            <p class="cta-strip__subtitulo">"¡Sublima tus momentos!" — Escribinos hoy por WhatsApp</p>
+            <span class="cta-strip__badge-wa" aria-label="WhatsApp disponible 24 horas, 7 días">📱 WhatsApp disponible 24/7</span>
+          </div>
+          <a href="#catalogo" class="btn btn--primario cta-strip__btn">Ver catálogo →</a>
+        </div>
+      </section>
+
+    </main>
+
+
+    <!-- Botón volver arriba -->
+    <button class="btn-arriba" id="btn-arriba" aria-label="Volver al inicio de la página">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15"/>
+      </svg>
+    </button>
+
+
+    <!-- SPEED DIAL flotante permanente -->
+    <div class="speed-dial" id="speed-dial" aria-label="Redes sociales y contacto">
+
+  <div class="speed-dial__items" id="speed-dial-items" aria-hidden="true">
+
+    <!-- 1. WhatsApp -->
+    <div class="speed-dial__item">
+      <a href="https://wa.me/50687704881"
+         target="_blank" rel="noopener noreferrer"
+         class="speed-dial__btn speed-dial__btn--wa"
+         aria-label="Escribir por WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24" height="24" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- 2. Instagram -->
+    <div class="speed-dial__item">
+      <a href="https://www.instagram.com/sublimomentosvm?igsh=MWJod3g0YnMzZTlsOQ=="
+         target="_blank" rel="noopener noreferrer"
+         class="speed-dial__btn speed-dial__btn--ig"
+         aria-label="Ver Instagram de SubliMomentos">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24" height="24" aria-hidden="true">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- 3. Facebook -->
+    <div class="speed-dial__item">
+      <a href="https://www.facebook.com/share/1Cre2qBfp6/?mibextid=wwXIfr"
+         target="_blank" rel="noopener noreferrer"
+         class="speed-dial__btn speed-dial__btn--fb"
+         aria-label="Ver Facebook de SubliMomentos">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24" height="24" aria-hidden="true">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Botón principal — ícono de compartir -->
+  <button
+    class="speed-dial__trigger"
+    id="speed-dial-trigger"
+    aria-label="Abrir redes sociales"
+    aria-expanded="false"
+  >
+    <span class="speed-dial__flor" aria-hidden="true">🌸</span>
+  </button>
+
+</div>
+
+    <div id="footer-placeholder"></div>
+    <script src="scripts/main.js"></script>
+
+    <!-- ================================================================
+         TAZA 3D — Three.js + OrbitControls
+         Rota sola, se puede mover con mouse/dedo
+         Archivo: assets/taza-3d.glb
+         ================================================================ -->
+    <script>
+    (function () {
+      function iniciarTaza3D() {
+        var canvas  = document.getElementById("taza-canvas");
+        var wrapper = canvas ? canvas.parentElement : null;
+        if (!canvas || !wrapper || typeof THREE === "undefined") return;
+
+        var W = wrapper.offsetWidth  || 380;
+        var H = wrapper.offsetHeight || 440;
+
+        /* Renderer transparente */
+        var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.outputEncoding = THREE.sRGBEncoding;
+        renderer.setSize(W, H);
+
+        /* Escena + cámara */
+        var scene  = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(30, W / H, 0.1, 100);
+        camera.position.set(0, 0.9, 4);
+
+        /* Luces */
+        scene.add(new THREE.AmbientLight(0xffffff, 0.9));
+        var sun = new THREE.DirectionalLight(0xffffff, 1.4);
+        sun.position.set(3, 5, 4);
+        scene.add(sun);
+        var fill = new THREE.DirectionalLight(0xfff0f5, 0.5);
+        fill.position.set(-3, 0, -2);
+        scene.add(fill);
+
+        /* OrbitControls — rota sola + se puede mover con mouse/dedo */
+        var controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping   = true;
+        controls.dampingFactor   = 0.06;
+        controls.autoRotate      = true;
+        controls.autoRotateSpeed = 2.5;
+        controls.enableZoom      = false;   /* sin zoom para no interferir con el scroll */
+        controls.enablePan       = false;
+        controls.minPolarAngle   = Math.PI * 0.38;
+        controls.maxPolarAngle   = Math.PI * 0.52;
+
+        /* Carga del GLB */
+        var loader = new THREE.GLTFLoader();
+        loader.load(
+          "assets/taza-3d.glb",
+          function (gltf) {
+            var model = gltf.scene;
+            /* Centrado y escala automática */
+            var box    = new THREE.Box3().setFromObject(model);
+            var center = box.getCenter(new THREE.Vector3());
+            var size   = box.getSize(new THREE.Vector3());
+            var escala = 1.8 / Math.max(size.x, size.y, size.z);
+            model.scale.setScalar(escala);
+            model.position.sub(center.multiplyScalar(escala));
+            scene.add(model);
+          },
+          undefined,
+          function (err) { console.warn("taza-3d.glb no encontrado:", err); }
+        );
+
+        /* Loop de animación */
+        function animar() {
+          requestAnimationFrame(animar);
+          controls.update();          /* requerido para damping y autoRotate */
+          renderer.render(scene, camera);
+        }
+        animar();
+
+        /* Resize responsivo */
+        window.addEventListener("resize", function () {
+          var w2 = wrapper.offsetWidth  || 380;
+          var h2 = wrapper.offsetHeight || 440;
+          camera.aspect = w2 / h2;
+          camera.updateProjectionMatrix();
+          renderer.setSize(w2, h2);
+        });
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", iniciarTaza3D);
+      } else {
+        iniciarTaza3D();
+      }
+    })();
+    </script>
+
+  </body>
+</html>

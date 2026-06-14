@@ -1,0 +1,63 @@
+/* ==========================================================================
+   SUBLIMOMENTOS V&M — Animaciones
+   Archivo: styles/animations.css
+   ========================================================================== */
+
+/* --- Cinta infinita de servicios --- */
+@keyframes desplazar-cinta {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes desplazar-cinta-inversa {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* --- Reveal al scroll (IntersectionObserver) --- */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity   var(--duracion-lenta) var(--ease-out),
+    transform var(--duracion-lenta) var(--ease-out);
+}
+.reveal-visible { opacity: 1; transform: translateY(0); }
+
+.reveal-delay-1 { transition-delay: 100ms; }
+.reveal-delay-2 { transition-delay: 200ms; }
+.reveal-delay-3 { transition-delay: 300ms; }
+.reveal-delay-4 { transition-delay: 400ms; }
+
+/* --- Flor girando al activar --- */
+@keyframes florGirar {
+  from { transform: rotate(0deg) scale(1);   }
+  50%  { transform: rotate(180deg) scale(1.2); }
+  to   { transform: rotate(360deg) scale(1);   }
+}
+.btn-tema:active .btn-tema__icono {
+  animation: florGirar var(--duracion-normal) var(--ease-rebote);
+}
+
+/* --- Pulse en tarjeta destacada del hero --- */
+@keyframes pulseSuave {
+  0%   { box-shadow: 0 0 0 0px rgba(233, 30, 140, 0.2); }
+  70%  { box-shadow: 0 0 0 8px rgba(233, 30, 140, 0);   }
+  100% { box-shadow: 0 0 0 0px rgba(233, 30, 140, 0);   }
+}
+.tarjeta-destacada--principal { animation: pulseSuave 2.5s infinite; }
+
+/* --- Línea del logo al cargar --- */
+@keyframes lineaCrecer {
+  from { width: 0; }
+  to   { width: 48px; }
+}
+.hero__linea-logo { animation: lineaCrecer var(--duracion-lenta) var(--ease-out) 0.3s both; }
+
+/* --- Respeta preferencia de movimiento reducido (WCAG) --- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-hidden { opacity: 1; transform: none; transition: none; }
+  .tarjeta-destacada--principal { animation: none; }
+  .hero__linea-logo { animation: none; }
+  .servicios-cinta__pista { animation: none !important; }
+}
