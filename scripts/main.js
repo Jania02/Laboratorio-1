@@ -7,7 +7,7 @@
 /* ================================================================
    01. CONSTANTES
 ================================================================ */
-const WHATSAPP_NUMERO = "50687704881";
+const WHATSAPP_NUMERO = "50672911998";
 const CLASE_OSCURO          = "modo-oscuro";
 const CLASE_NAV_VISIBLE     = "is-visible";
 const CLASE_HEADER_SCROLLED = "site-header--scrolled";

@@ -346,3 +346,236 @@ h1,h2,h3,h4,h5,h6{font-family:var(--fuente-display);color:var(--texto-headings);
   .ubicacion__grilla{grid-template-columns:1fr;}
   .btn-arriba{left:1rem;bottom:1rem;}
 }
+/* ================================================================
+   CORRECCIONES v3 — fondos alternados + espaciado + mapa
+   ================================================================ */
+
+/* --- FAQ — fondo ROSADO --- */
+.faq {
+  background: #fce4ec !important;
+  padding-top: 4rem !important;
+  padding-bottom: 5rem !important;
+}
+
+.faq__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.faq__izquierda {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.faq__titulo-grande {
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #1a1a1a;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.faq__subtitulo {
+  font-size: 0.9rem;
+  color: #888;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.faq__personaje {
+  width: 100%;
+  max-width: 420px !important;
+  margin-top: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Columna derecha: preguntas centradas verticalmente */
+.faq__derecha {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 0;
+}
+
+.faq__item {
+  border-bottom: 1px solid #f48fb1;
+}
+
+.faq__item:first-child {
+  border-top: 1px solid #f48fb1;
+}
+
+.faq__pregunta {
+  padding: 1.1rem 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.faq__respuesta {
+  font-size: 0.88rem;
+  color: #666;
+  line-height: 1.65;
+  padding-bottom: 1.1rem;
+}
+
+/* --- UBICACIÓN — fondo BLANCO para contrastar con FAQ rosado --- */
+.ubicacion {
+  background: #ffffff !important;
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+}
+
+.ubicacion__layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: center;
+  min-height: 420px;
+}
+
+.ubicacion__titulo {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #1a1a1a;
+  margin: 0.25rem 0 1rem;
+}
+
+.ubicacion__titulo-acento {
+  color: #e91e8c;
+}
+
+.ubicacion__desc {
+  font-size: 0.9rem;
+  color: #888;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.ubicacion__metricas {
+  display: flex;
+  border-top: 1px solid #f8bbd0;
+  padding-top: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.ubicacion__metrica {
+  flex: 1;
+  padding-right: 1.25rem;
+  margin-right: 1.25rem;
+  border-right: 1px solid #f8bbd0;
+}
+
+.ubicacion__metrica:last-child {
+  border-right: none;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.ubicacion__metrica-num {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #e91e8c;
+  line-height: 1;
+  display: block;
+}
+
+.ubicacion__metrica-label {
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 0.3rem;
+  line-height: 1.4;
+  display: block;
+}
+
+.ubicacion__botones {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Mapa rectangular con borde pastel sutil */
+.ubicacion__mapa-wrap {
+  position: relative;
+  height: 420px;
+}
+
+.ubicacion__mapa-clip {
+  clip-path: none !important;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px !important;
+  border: 1.5px solid #f8bbd0 !important;
+  overflow: hidden;
+}
+
+.ubicacion__mapa-clip iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.ubicacion__mapa-badge {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background: #fff;
+  border: 1px solid #f8bbd0;
+  border-radius: 10px;
+  padding: 5px 11px;
+  font-size: 0.75rem;
+  color: #888;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.ubicacion__mapa-badge-dot {
+  width: 7px;
+  height: 7px;
+  min-width: 7px;
+  background: #e91e8c;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Quitar ::after innecesario */
+.ubicacion__mapa-wrap::after {
+  display: none !important;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .faq__layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .faq__personaje {
+    max-width: 260px !important;
+    margin: 0 auto 1rem;
+  }
+
+  .ubicacion__layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .ubicacion__mapa-wrap {
+    height: 280px;
+  }
+
+  .ubicacion__metricas {
+    gap: 0;
+  }
+}
