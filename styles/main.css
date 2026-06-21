@@ -1,6 +1,6 @@
 /* ==========================================================================
    SUBLIMOMENTOS V&M — main.css COMPLETO
-   Incluye: base, hero con taza 3D, catálogo, proceso, contacto,
+   Incluye: base, hero, catálogo, proceso, contacto,
             carrito, lightbox, speed dial
    ========================================================================== */
 
@@ -69,7 +69,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--fuente-display);color:var(--texto-headings);
 .nav-primary__toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:var(--space-2);cursor:pointer;border-radius:var(--radio-md);}
 .nav-primary__toggle-linea{display:block;width:22px;height:2px;background-color:var(--texto-principal);border-radius:var(--radio-full);transition:transform var(--transicion-normal),opacity var(--transicion-normal);}
 
-/* 07. HERO — texto arriba + taza 3D abajo izquierda */
+/* 07. HERO */
 .hero{position:relative;overflow:hidden;background-color:#1a0a10;min-height:90vh;display:flex;align-items:flex-start;}
 .hero__video-bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;}
 .hero__overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(255,248,244,0.97) 0%,rgba(255,248,244,0.88) 30%,rgba(255,248,244,0.55) 55%,rgba(255,248,244,0.05) 100%);z-index:1;}
@@ -85,10 +85,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--fuente-display);color:var(--texto-headings);
 .hero__descripcion{font-size:var(--texto-sm);font-weight:var(--peso-ligero);color:var(--texto-secundario);line-height:var(--linea-holgada);margin-bottom:var(--space-8);max-width:44ch;}
 .hero__acciones{display:flex;gap:var(--space-3);flex-wrap:wrap;}
 
-/* Taza 3D flotante */
-.hero__taza-3d{position:absolute;bottom:12%;left:10%;top:auto;transform:none;width:50%;max-width:340px;height:340px;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-.hero__taza-canvas{width:100%;height:100%;display:block;cursor:grab;}
-.hero__taza-canvas:active{cursor:grabbing;}
 /* 08. SERVICIOS */
 .servicios{background-color:var(--fondo-alternado);padding-block:var(--space-16) 0;overflow:hidden;}
 .servicios .contenedor{max-width:var(--ancho-maximo);}
@@ -261,7 +257,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--fuente-display);color:var(--texto-headings);
 /* 17. MEDIA QUERIES */
 @media(max-width:1024px){
   .catalogo__grilla{grid-template-columns:repeat(3,1fr);}
-  .hero__taza-3d{width:35%;}
 }
 @media(max-width:768px){
   .site-header__inner{position:relative;}
@@ -272,7 +267,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--fuente-display);color:var(--texto-headings);
   .nav-primary{gap:var(--space-3);}
   .hero{min-height:70vh;}
   .hero__contenido{max-width:100%;}
-  .hero__taza-3d{display:none;}
   .slide-servicio{width:220px;height:170px;}
   .catalogo__grilla{grid-template-columns:repeat(2,1fr);}
   .proceso__pasos{flex-direction:column;align-items:center;}
