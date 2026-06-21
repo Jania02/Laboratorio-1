@@ -12,15 +12,20 @@
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="stylesheet" href="styles/animations.css" />
     <link rel="preload" as="image" href="assets/icons/logo.png" />
-    <!-- Three.js r152 via ESM + importmap -->
-    <script type="importmap">
-    {
-      "imports": {
-        "three": "https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js",
-        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/"
-      }
-    }
-    </script>
+    <!-- Seguridad: Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: blob: https:;
+      frame-src https://maps.google.com https://www.google.com;
+      connect-src 'self' blob:;
+      worker-src 'self' blob:;
+    ">
+    <!-- Accesibilidad -->
+    <meta name="color-scheme" content="light">
+
   </head>
   <body>
 
@@ -62,10 +67,6 @@
           </div>
         </div>
 
-        <!-- TAZA 3D -->
-        <div class="hero__taza-3d" aria-hidden="true">
-          <canvas id="taza-canvas" class="hero__taza-canvas"></canvas>
-        </div>
 
       </section>
 
@@ -384,78 +385,9 @@
 
     <div id="footer-placeholder"></div>
     <script src="scripts/main.js"></script>
+    <script src="scripts/accesibilidad.js"></script>
 
-    <!-- TAZA 3D — Three.js ESM con GLTFLoader y OrbitControls -->
-    <script type="module">
-      import * as THREE from 'three';
-      import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-      import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-      const canvas  = document.getElementById('taza-canvas');
-      const wrapper = canvas ? canvas.parentElement : null;
-      if (!canvas || !wrapper) throw new Error('canvas no encontrado');
-
-      const W = wrapper.offsetWidth  || 380;
-      const H = wrapper.offsetHeight || 440;
-
-      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      renderer.outputColorSpace = THREE.SRGBColorSpace;
-      renderer.setSize(W, H);
-
-      const scene  = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(30, W / H, 0.1, 100);
-      camera.position.set(0, 0.9, 4);
-
-      scene.add(new THREE.AmbientLight(0xffffff, 0.9));
-      const sun = new THREE.DirectionalLight(0xffffff, 1.4);
-      sun.position.set(3, 5, 4);
-      scene.add(sun);
-      const fill = new THREE.DirectionalLight(0xfff0f5, 0.5);
-      fill.position.set(-3, 0, -2);
-      scene.add(fill);
-
-      const controls = new OrbitControls(camera, renderer.domElement);
-      controls.enableDamping   = true;
-      controls.dampingFactor   = 0.06;
-      controls.autoRotate      = true;
-      controls.autoRotateSpeed = 2.5;
-      controls.enableZoom      = false;
-      controls.enablePan       = false;
-      controls.minPolarAngle   = Math.PI * 0.38;
-      controls.maxPolarAngle   = Math.PI * 0.52;
-
-      const loader = new GLTFLoader();
-      loader.load(
-        'assets/taza-3d.glb',
-        (gltf) => {
-          const model  = gltf.scene;
-          const box    = new THREE.Box3().setFromObject(model);
-          const center = box.getCenter(new THREE.Vector3());
-          const size   = box.getSize(new THREE.Vector3());
-          const escala = 1.8 / Math.max(size.x, size.y, size.z);
-          model.scale.setScalar(escala);
-          model.position.sub(center.multiplyScalar(escala));
-          scene.add(model);
-        },
-        undefined,
-        (err) => console.warn('taza-3d.glb error:', err)
-      );
-
-      (function animar() {
-        requestAnimationFrame(animar);
-        controls.update();
-        renderer.render(scene, camera);
-      })();
-
-      window.addEventListener('resize', () => {
-        const w2 = wrapper.offsetWidth  || 380;
-        const h2 = wrapper.offsetHeight || 440;
-        camera.aspect = w2 / h2;
-        camera.updateProjectionMatrix();
-        renderer.setSize(w2, h2);
-      });
-    </script>
 
   </body>
 </html>

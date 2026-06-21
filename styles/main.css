@@ -259,10 +259,11 @@ h1,h2,h3,h4,h5,h6{font-family:var(--fuente-display);color:var(--texto-headings);
 .speed-dial__trigger.is-open{transform:scale(1.1);background:var(--color-rosa-600);}
 
 /* 17. MEDIA QUERIES */
-@media(max-width:1024px){.catalogo__grilla{grid-template-columns:repeat(3,1fr);}.hero__taza-3d{width:35%;}}
+@media(max-width:1024px){
+  .catalogo__grilla{grid-template-columns:repeat(3,1fr);}
+  .hero__taza-3d{width:35%;}
+}
 @media(max-width:768px){
-  .faq__grilla{grid-template-columns:1fr;}
-
   .site-header__inner{position:relative;}
   .nav-primary__lista{position:absolute;top:100%;left:0;right:0;background-color:var(--fondo-nav);border-bottom:1px solid var(--borde-suave);flex-direction:column;align-items:flex-start;gap:0;padding:var(--space-4);display:none;box-shadow:var(--sombra-lg);z-index:var(--z-dropdown);}
   .nav-primary__lista.is-visible{display:flex;}
@@ -303,64 +304,18 @@ h1,h2,h3,h4,h5,h6{font-family:var(--fuente-display);color:var(--texto-headings);
 }
 
 /* ==========================================================================
-   18. NUEVAS SECCIONES — Ocasiones, Testimonios, FAQ, Ubicación, Btn arriba
+   18. FAQ — layout split con personaje + acordeón
    ========================================================================== */
-
-/* --- FAQ opción A — cuadrícula 2 columnas --- */
-.faq{background-color:var(--fondo-alternado);padding-block:var(--space-16);}
-.faq .contenedor{max-width:var(--ancho-maximo);}
-.faq__grilla{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4);margin-top:var(--space-8);}
-.faq__card{background-color:var(--fondo-tarjeta);border:0.5px solid var(--borde-tarjeta);border-radius:var(--radio-lg);overflow:hidden;transition:box-shadow var(--transicion-rapida),border-color var(--transicion-rapida);}
-.faq__card:hover{box-shadow:var(--sombra-md);border-color:var(--color-rosa-300);}
-.faq__card[open]{border-color:var(--color-rosa-400);box-shadow:var(--sombra-md);}
-.faq__card-q{display:flex;align-items:center;gap:var(--space-3);padding:var(--space-4) var(--space-5);font-size:var(--texto-sm);font-weight:var(--peso-medio);color:var(--texto-principal);cursor:pointer;list-style:none;user-select:none;}
-.faq__card-q::-webkit-details-marker{display:none;}
-.faq__card-icono{font-size:1.1rem;flex-shrink:0;}
-.faq__card-q span:nth-child(2){flex:1;}
-.faq__card-chevron{color:var(--color-rosa-500);font-size:1.2rem;font-weight:var(--peso-negrita);flex-shrink:0;transition:transform var(--transicion-normal);}
-.faq__card[open] .faq__card-chevron{transform:rotate(45deg);}
-.faq__card-a{padding:0 var(--space-5) var(--space-4) calc(var(--space-5) + 1.6rem);font-size:var(--texto-xs);color:var(--texto-secundario);line-height:var(--linea-holgada);margin:0;border-top:0.5px solid var(--borde-suave);}
-
-/* --- UBICACIÓN --- */
-.ubicacion{background-color:var(--fondo-tarjeta);padding-block:var(--space-16);}
-.ubicacion .contenedor{max-width:var(--ancho-maximo);}
-.ubicacion__grilla{display:grid;grid-template-columns:1.6fr 1fr;gap:var(--space-6);margin-top:var(--space-8);align-items:start;}
-.ubicacion__mapa iframe{display:block;width:100%;box-shadow:var(--sombra-md);}
-.ubicacion__info{background:linear-gradient(160deg,#fff0f5,#fce4ec);border:1px solid var(--color-rosa-200);border-radius:var(--radio-xl);padding:var(--space-6);}
-.ubicacion__info-titulo{font-family:var(--fuente-display);font-size:var(--texto-lg);color:#7a1040;margin-bottom:var(--space-5);}
-.ubicacion__item{display:flex;gap:var(--space-3);align-items:flex-start;margin-bottom:var(--space-4);}
-.ubicacion__item-emoji{font-size:1.2rem;flex-shrink:0;}
-.ubicacion__item-titulo{font-size:var(--texto-sm);font-weight:var(--peso-semi);color:#7a1040;margin-bottom:2px;}
-.ubicacion__item-desc{font-size:var(--texto-xs);color:#9a6070;line-height:var(--linea-normal);}
-
-/* --- BADGE WHATSAPP en CTA --- */
-.cta-strip__badge-wa{display:inline-flex;align-items:center;gap:var(--space-1);background-color:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.35);color:white;font-size:var(--texto-xs);font-weight:var(--peso-medio);padding:var(--space-1) var(--space-4);border-radius:var(--radio-full);margin-top:var(--space-3);}
-
-/* --- BOTÓN VOLVER ARRIBA --- */
-.btn-arriba{position:fixed;bottom:1.5rem;left:1.5rem;z-index:var(--z-toast);width:46px;height:46px;border-radius:50%;background-color:var(--fondo-tarjeta);color:var(--color-rosa-500);border:1.5px solid var(--color-rosa-300);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--sombra-md);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity var(--transicion-normal),transform var(--transicion-normal),visibility var(--transicion-normal),background-color var(--transicion-rapida);}
-.btn-arriba.es-visible{opacity:1;visibility:visible;transform:translateY(0);}
-.btn-arriba:hover{background-color:var(--color-rosa-50);transform:translateY(-3px);}
-
-/* --- RESPONSIVE de nuevas secciones --- */
-@media(max-width:768px){
-  .ubicacion__grilla{grid-template-columns:1fr;}
-  .btn-arriba{left:1rem;bottom:1rem;}
-}
-/* ================================================================
-   CORRECCIONES v3 — fondos alternados + espaciado + mapa
-   ================================================================ */
-
-/* --- FAQ — fondo ROSADO --- */
 .faq {
-  background: #fce4ec !important;
-  padding-top: 4rem !important;
-  padding-bottom: 5rem !important;
+  background-color: var(--color-rosa-100);
+  padding-block: var(--space-16);
 }
+.faq .contenedor { max-width: var(--ancho-maximo); }
 
 .faq__layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: var(--space-16);
   align-items: center;
 }
 
@@ -368,154 +323,175 @@ h1,h2,h3,h4,h5,h6{font-family:var(--fuente-display);color:var(--texto-headings);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
 }
 
 .faq__titulo-grande {
   font-size: clamp(2rem, 3.5vw, 2.8rem);
-  font-weight: 700;
-  line-height: 1.15;
-  color: #1a1a1a;
-  margin: 0.5rem 0 0.75rem;
+  font-weight: var(--peso-negrita);
+  line-height: var(--linea-apretada);
+  color: var(--texto-headings);
+  margin: var(--space-2) 0 var(--space-3);
 }
 
 .faq__subtitulo {
-  font-size: 0.9rem;
-  color: #888;
-  line-height: 1.6;
-  margin-bottom: 0.5rem;
+  font-size: var(--texto-sm);
+  color: var(--texto-secundario);
+  line-height: var(--linea-holgada);
+  margin-bottom: var(--space-2);
 }
 
 .faq__personaje {
   width: 100%;
-  max-width: 420px !important;
-  margin-top: 1rem;
+  max-width: 420px;
+  margin-top: var(--space-6);
   display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-/* Columna derecha: preguntas centradas verticalmente */
 .faq__derecha {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 0;
 }
 
 .faq__item {
-  border-bottom: 1px solid #f48fb1;
+  border-bottom: 1px solid var(--color-rosa-300);
 }
-
 .faq__item:first-child {
-  border-top: 1px solid #f48fb1;
+  border-top: 1px solid var(--color-rosa-300);
 }
 
 .faq__pregunta {
-  padding: 1.1rem 0;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #1a1a1a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-5) 0;
+  font-size: var(--texto-base);
+  font-weight: var(--peso-medio);
+  color: var(--texto-principal);
+  cursor: pointer;
+  list-style: none;
+  gap: var(--space-4);
 }
+.faq__pregunta::-webkit-details-marker { display: none; }
+
+.faq__chevron {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 50%;
+  background: var(--color-rosa-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+.faq__chevron::before,
+.faq__chevron::after {
+  content: '';
+  position: absolute;
+  background: var(--color-blanco);
+  border-radius: 2px;
+}
+.faq__chevron::before { width: 10px; height: 2px; }
+.faq__chevron::after  { width: 2px; height: 10px; transition: transform var(--transicion-normal), opacity var(--transicion-normal); }
+.faq__item[open] .faq__chevron::after { transform: rotate(90deg); opacity: 0; }
 
 .faq__respuesta {
-  font-size: 0.88rem;
-  color: #666;
-  line-height: 1.65;
-  padding-bottom: 1.1rem;
+  font-size: var(--texto-sm);
+  color: var(--texto-secundario);
+  line-height: var(--linea-holgada);
+  padding: 0 0 var(--space-5);
 }
 
-/* --- UBICACIÓN — fondo BLANCO para contrastar con FAQ rosado --- */
+/* ==========================================================================
+   19. UBICACIÓN — layout split con mapa rectangular
+   ========================================================================== */
 .ubicacion {
-  background: #ffffff !important;
-  padding-top: 5rem !important;
-  padding-bottom: 5rem !important;
+  background-color: var(--fondo-tarjeta);
+  padding-block: var(--space-16);
 }
+.ubicacion .contenedor { max-width: var(--ancho-maximo); }
 
 .ubicacion__layout {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  gap: 3rem;
+  gap: var(--space-12);
   align-items: center;
   min-height: 420px;
 }
 
+.ubicacion__izquierda {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
 .ubicacion__titulo {
   font-size: clamp(1.8rem, 3vw, 2.5rem);
-  font-weight: 700;
-  line-height: 1.15;
-  color: #1a1a1a;
-  margin: 0.25rem 0 1rem;
+  font-weight: var(--peso-negrita);
+  line-height: var(--linea-apretada);
+  color: var(--texto-headings);
+  margin: var(--space-1) 0;
 }
-
-.ubicacion__titulo-acento {
-  color: #e91e8c;
-}
+.ubicacion__titulo-acento { color: var(--color-rosa-500); }
 
 .ubicacion__desc {
-  font-size: 0.9rem;
-  color: #888;
-  line-height: 1.65;
-  margin-bottom: 1.5rem;
+  font-size: var(--texto-sm);
+  color: var(--texto-secundario);
+  line-height: var(--linea-holgada);
 }
 
 .ubicacion__metricas {
   display: flex;
-  border-top: 1px solid #f8bbd0;
-  padding-top: 1.25rem;
-  margin-bottom: 1.5rem;
+  border-top: 1px solid var(--color-rosa-200);
+  padding-top: var(--space-5);
 }
 
 .ubicacion__metrica {
   flex: 1;
-  padding-right: 1.25rem;
-  margin-right: 1.25rem;
-  border-right: 1px solid #f8bbd0;
+  padding-right: var(--space-5);
+  margin-right: var(--space-5);
+  border-right: 1px solid var(--color-rosa-200);
 }
-
 .ubicacion__metrica:last-child {
   border-right: none;
   margin-right: 0;
   padding-right: 0;
 }
-
 .ubicacion__metrica-num {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #e91e8c;
+  font-size: var(--texto-xl);
+  font-weight: var(--peso-negrita);
+  color: var(--color-rosa-500);
   line-height: 1;
   display: block;
 }
-
 .ubicacion__metrica-label {
-  font-size: 0.75rem;
-  color: #888;
-  margin-top: 0.3rem;
-  line-height: 1.4;
+  font-size: var(--texto-xs);
+  color: var(--texto-secundario);
+  margin-top: var(--space-1);
+  line-height: var(--linea-normal);
   display: block;
 }
 
 .ubicacion__botones {
   display: flex;
-  gap: 0.75rem;
+  gap: var(--space-3);
   flex-wrap: wrap;
 }
 
-/* Mapa rectangular con borde pastel sutil */
 .ubicacion__mapa-wrap {
   position: relative;
   height: 420px;
 }
 
 .ubicacion__mapa-clip {
-  clip-path: none !important;
   width: 100%;
   height: 100%;
-  border-radius: 16px !important;
-  border: 1.5px solid #f8bbd0 !important;
+  border-radius: var(--radio-lg);
+  border: 1.5px solid var(--color-rosa-200);
   overflow: hidden;
 }
-
 .ubicacion__mapa-clip iframe {
   width: 100%;
   height: 100%;
@@ -525,57 +501,239 @@ h1,h2,h3,h4,h5,h6{font-family:var(--fuente-display);color:var(--texto-headings);
 
 .ubicacion__mapa-badge {
   position: absolute;
-  bottom: 14px;
-  left: 14px;
-  background: #fff;
-  border: 1px solid #f8bbd0;
-  border-radius: 10px;
-  padding: 5px 11px;
-  font-size: 0.75rem;
-  color: #888;
+  bottom: var(--space-4);
+  left: var(--space-4);
+  background: var(--color-blanco);
+  border: 1px solid var(--color-rosa-200);
+  border-radius: var(--radio-full);
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--texto-xs);
+  color: var(--texto-secundario);
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-2);
   z-index: 2;
   pointer-events: none;
 }
-
 .ubicacion__mapa-badge-dot {
   width: 7px;
   height: 7px;
   min-width: 7px;
-  background: #e91e8c;
+  background: var(--color-rosa-500);
   border-radius: 50%;
   display: inline-block;
 }
 
-/* Quitar ::after innecesario */
-.ubicacion__mapa-wrap::after {
-  display: none !important;
+/* ==========================================================================
+   20. BADGE WHATSAPP + BOTÓN ARRIBA
+   ========================================================================== */
+.cta-strip__badge-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  background-color: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.35);
+  color: var(--color-blanco);
+  font-size: var(--texto-xs);
+  font-weight: var(--peso-medio);
+  padding: var(--space-1) var(--space-4);
+  border-radius: var(--radio-full);
+  margin-top: var(--space-3);
 }
 
-/* --- RESPONSIVE --- */
+.btn-arriba {
+  position: fixed;
+  bottom: var(--space-6);
+  left: var(--space-6);
+  z-index: var(--z-toast);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: var(--fondo-tarjeta);
+  color: var(--color-rosa-500);
+  border: 1.5px solid var(--color-rosa-300);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--sombra-md);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity var(--transicion-normal), transform var(--transicion-normal), visibility var(--transicion-normal), background-color var(--transicion-rapida);
+}
+.btn-arriba.es-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.btn-arriba:hover { background-color: var(--color-rosa-50); transform: translateY(-3px); }
+
+/* ==========================================================================
+   21. ACCESIBILIDAD — Widget de zoom y contraste
+   ========================================================================== */
+.a11y-widget {
+  position: fixed;
+  bottom: var(--space-6);
+  left: 5rem;
+  z-index: var(--z-toast);
+}
+
+.a11y-widget__trigger {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--fondo-tarjeta);
+  color: var(--color-rosa-500);
+  border: 1.5px solid var(--color-rosa-300);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--sombra-md);
+  transition: background-color var(--transicion-rapida), transform var(--transicion-rapida);
+}
+.a11y-widget__trigger:hover { background-color: var(--color-rosa-50); transform: scale(1.08); }
+
+.a11y-widget__panel {
+  position: absolute;
+  bottom: calc(100% + var(--space-3));
+  left: 0;
+  background: var(--fondo-tarjeta);
+  border: 1px solid var(--color-rosa-200);
+  border-radius: var(--radio-xl);
+  padding: var(--space-5);
+  width: 220px;
+  box-shadow: var(--sombra-lg);
+  display: none;
+}
+.a11y-widget__panel--visible { display: block; }
+
+.a11y-widget__titulo {
+  font-size: var(--texto-xs);
+  font-weight: var(--peso-semi);
+  color: var(--texto-secundario);
+  letter-spacing: var(--tracking-amplio);
+  text-transform: uppercase;
+  margin-bottom: var(--space-4);
+}
+
+.a11y-widget__grupo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+.a11y-widget__grupo:last-child { margin-bottom: 0; }
+
+.a11y-widget__label {
+  font-size: var(--texto-xs);
+  color: var(--texto-principal);
+  flex-shrink: 0;
+}
+
+.a11y-widget__controles {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.a11y-widget__btn {
+  background: var(--color-rosa-50);
+  border: 1px solid var(--color-rosa-200);
+  border-radius: var(--radio-sm);
+  color: var(--color-rosa-500);
+  font-family: var(--fuente-cuerpo);
+  font-size: var(--texto-xs);
+  font-weight: var(--peso-semi);
+  padding: var(--space-1) var(--space-2);
+  cursor: pointer;
+  transition: background-color var(--transicion-rapida);
+  line-height: 1;
+}
+.a11y-widget__btn:hover { background: var(--color-rosa-100); }
+.a11y-widget__btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.a11y-widget__btn--reset { color: var(--texto-secundario); }
+
+.a11y-widget__valor {
+  font-size: var(--texto-xs);
+  color: var(--color-rosa-500);
+  font-weight: var(--peso-semi);
+  min-width: 36px;
+  text-align: center;
+}
+
+.a11y-widget__toggle {
+  width: 40px;
+  height: 22px;
+  border-radius: var(--radio-full);
+  background: var(--color-neutro-200);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: background-color var(--transicion-normal);
+  flex-shrink: 0;
+}
+.a11y-widget__toggle--activo { background: var(--color-rosa-500); }
+.a11y-widget__toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-blanco);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  transition: transform var(--transicion-normal);
+}
+.a11y-widget__toggle--activo .a11y-widget__toggle-thumb { transform: translateX(18px); }
+
+/* ==========================================================================
+   22. ALTO CONTRASTE
+   ========================================================================== */
+body.alto-contraste {
+  --fondo-pagina:    #000000;
+  --fondo-alternado: #111111;
+  --fondo-tarjeta:   #000000;
+  --fondo-nav:       #000000;
+  --texto-principal:  #ffffff;
+  --texto-headings:   #ffffff;
+  --texto-secundario: #dddddd;
+  --texto-muted:      #aaaaaa;
+  --borde-suave:   #444444;
+  --borde-tarjeta: #444444;
+  --color-rosa-100: #1a0010;
+  --color-rosa-200: #330020;
+  --color-rosa-300: #ff69b4;
+  --color-rosa-500: #ff69b4;
+  --color-rosa-600: #ff1493;
+}
+body.alto-contraste .hero__overlay {
+  background: linear-gradient(105deg, rgba(0,0,0,0.97) 0%, rgba(0,0,0,0.88) 40%, rgba(0,0,0,0.3) 100%);
+}
+body.alto-contraste .btn--primario {
+  background: #ff69b4;
+  color: #000000;
+}
+body.alto-contraste .btn--secundario {
+  border-color: #ff69b4;
+  color: #ff69b4;
+}
+
+/* ==========================================================================
+   23. RESPONSIVE nuevas secciones
+   ========================================================================== */
 @media (max-width: 768px) {
   .faq__layout {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: var(--space-8);
   }
-
   .faq__personaje {
-    max-width: 260px !important;
-    margin: 0 auto 1rem;
+    max-width: 260px;
+    margin: 0 auto var(--space-4);
   }
-
   .ubicacion__layout {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: var(--space-8);
   }
-
-  .ubicacion__mapa-wrap {
-    height: 280px;
-  }
-
-  .ubicacion__metricas {
-    gap: 0;
-  }
+  .ubicacion__mapa-wrap { height: 280px; }
+  .btn-arriba { left: var(--space-4); bottom: var(--space-4); }
+  .a11y-widget { left: 4rem; bottom: var(--space-4); }
 }

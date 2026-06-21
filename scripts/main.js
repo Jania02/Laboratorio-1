@@ -202,24 +202,21 @@ async function cargarComponentes() {
 ================================================================ */
 function iniciarNavegacionMovil() {
   document.addEventListener("click", (e) => {
-    const b = e.target.closest(".nav-primary__toggle");
-    if (b) alternarMenu(b);
+    const toggle = e.target.closest(".nav-primary__toggle");
+    const enlace = e.target.closest(".nav-primary__enlace");
+    const toggle_actual = document.querySelector(".nav-primary__toggle");
+
+    if (toggle) { alternarMenu(toggle); return; }
+    if (enlace && toggle_actual) { cerrarMenu(toggle_actual); return; }
+    if (toggle_actual?.getAttribute("aria-expanded") === "true" && !e.target.closest(".nav-primary")) {
+      cerrarMenu(toggle_actual);
+    }
   });
-  document.addEventListener("click", (e) => {
-    const b = document.querySelector(".nav-primary__toggle");
-    if (!b) return;
-    if (b.getAttribute("aria-expanded") === "true" && !e.target.closest(".nav-primary")) cerrarMenu(b);
-  });
+
   document.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;
     const b = document.querySelector(".nav-primary__toggle");
-    if (b && b.getAttribute("aria-expanded") === "true") { cerrarMenu(b); b.focus(); }
-  });
-  document.addEventListener("click", (e) => {
-    if (e.target.closest(".nav-primary__enlace")) {
-      const b = document.querySelector(".nav-primary__toggle");
-      if (b) cerrarMenu(b);
-    }
+    if (b?.getAttribute("aria-expanded") === "true") { cerrarMenu(b); b.focus(); }
   });
 }
  
